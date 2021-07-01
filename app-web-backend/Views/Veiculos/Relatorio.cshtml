@@ -1,0 +1,57 @@
+﻿@model app_web_backend.Models.Veiculo
+
+@{
+    ViewData["Title"] = "Relatorio";
+}
+
+<h2>Veículo: @Model.Nome</h2>
+
+<div>
+    <h4>Consumos</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Descrição
+                    </th>
+                    <th>
+                        Data
+                    </th>
+                    <th>
+                        Valor
+                    </th>
+                    <th>
+                        Km
+                    </th>
+                    <th>
+                        Tipo de Combustível
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Consumos.OrderByDescending(c => c.Data))
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Valor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Km)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-info">Voltar</a>
+</div>
