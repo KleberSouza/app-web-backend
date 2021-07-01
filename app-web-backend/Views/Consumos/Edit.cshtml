@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control"></select>
+                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<TipoCombustivel>()"></select>
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
             <div class="form-group">
